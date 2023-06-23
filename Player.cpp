@@ -54,7 +54,7 @@ void Player::Update()
 	 if(Input::IsKey(DIK_SPACE))
 	{
 		
-		XMVECTOR base = XMVectorSet(0, 0, MaxPower, 0);//回転していないときに移動するベクトル
+		XMVECTOR base = XMVectorSet(0, 0, power, 0);//回転していないときに移動するベクトル
 		XMMATRIX yrot = XMMatrixRotationY(direction);//回転行列の作成
 		XMVECTOR v = XMVector3Transform(base, yrot);//その回転でベクトルの向きを変える
 		myBall->AddForce(v);//回転後の移動ベクトル
