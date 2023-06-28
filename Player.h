@@ -12,6 +12,8 @@ private:
 	int nowPw_, maxPw_;
 	float MaxPower;
 	float difPower;
+
+	bool strengthentheball = true;
 public:
 	Player(GameObject* parent);
 	~Player();

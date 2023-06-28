@@ -28,33 +28,38 @@ void Player::Update()
 {
 	if (Input::IsKey(DIK_W))
 	{
-		nowPw_ += 2.0f;
-		if (nowPw_ > maxPw_)
+		if (strengthentheball)
 		{
-			nowPw_ = maxPw_;
+			nowPw_ += 2.0f;
+			if (nowPw_ > maxPw_)
+			{
+				nowPw_ = maxPw_;
+				strengthentheball = false;
+			}
+			else
+			{
+				nowPw_ -= 2.0f;
+				if (nowPw_ < 0.0f)
+				{
+					nowPw_ = 0.0f;
+					strengthentheball = true;
+				}
+			}
 		}
+		
 	}
-	if (Input::IsKey(DIK_Q))
-	{
-		nowPw_ -= 2.0f;
-		if (nowPw_ < 0)
-		{
-			nowPw_ = 0;
-		}
-	}
+	
+	
 	
 	if (Input::IsKey(DIK_A))
 		direction -= 0.01f;
 	if (Input::IsKey(DIK_D))
 		direction += 0.01f;
-    if (Input::IsKeyUp(DIK_SPACE))
-	{
-		false;
-	}
+   
 	 if(Input::IsKey(DIK_SPACE))
 	{
 		
-		XMVECTOR base = XMVectorSet(0, 0, power, 0);//回転していないときに移動するベクトル
+		XMVECTOR base = XMVectorSet(0, 0, power*(nowPw_/static_cast<float>(20)), 0);//回転していないときに移動するベクトル
 		XMMATRIX yrot = XMMatrixRotationY(direction);//回転行列の作成
 		XMVECTOR v = XMVector3Transform(base, yrot);//その回転でベクトルの向きを変える
 		myBall->AddForce(v);//回転後の移動ベクトル
