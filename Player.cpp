@@ -31,19 +31,19 @@ void Player::Update()
 		if (strengthentheball)
 		{
 			nowPw_ += 2.0f;
-			if (nowPw_ > maxPw_)
+			if (nowPw_ >= maxPw_)
 			{
 				nowPw_ = maxPw_;
 				strengthentheball = false;
 			}
-			else
+		}
+		else
+		{
+			nowPw_ -= 2.0f;
+			if (nowPw_ <= 0.0f)
 			{
-				nowPw_ -= 2.0f;
-				if (nowPw_ < 0.0f)
-				{
-					nowPw_ = 0.0f;
-					strengthentheball = true;
-				}
+				nowPw_ = 0.0f;
+				strengthentheball = true;
 			}
 		}
 		
