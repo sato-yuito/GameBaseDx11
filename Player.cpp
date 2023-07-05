@@ -19,8 +19,8 @@ Player::Player(GameObject* parent)
 	power = 0.2f;
 	maxPw_ = 100;
 	nowPw_ = 0;
-	MaxPower = nowPw_ +power;
-	difPower = nowPw_ - power;
+	//MaxPower = nowPw_ +power;
+	//difPower = nowPw_ - power;
 	hModel = Model::Load("DebugCollision/SphereCollider.fbx");
 	transform_.scale_ = XMFLOAT3(0.2f, 0.2f, 0.2f);
 }
