@@ -5,11 +5,18 @@
 class Gauge : public GameObject
 {
 
-public:
+private:
     int hPictGauge_;    //ゲージの中身
     int hPictFrame_;  //フレーム
+    float nowPw_;//今の値
+    const float maxPw_ = 1.0f;//最大値
+    float animPw_;//表示用の値
+    int ImageWidth;
+    int ImageHeight;
 
-    int nowPw_, maxPw_, animPw_;
+public:
+    static constexpr float MIN = 0.0f;
+    static constexpr float MAX = 1.0f;
     //コンストラクタ
     Gauge(GameObject* parent);
 
@@ -28,10 +35,16 @@ public:
     //開放
     void Release() override;
 
-    void SetPw(int nowPw, int maxPw)
-    {
-        nowPw_ = nowPw;
-        maxPw_ = maxPw;
-        animPw_ = (animPw_ * 8 + nowPw_) / 8;
-    }
+    
+    void SetPosition(float x, float y);
+
+    /// <summary>
+    /// 値を加減算する
+    /// </summary>
+    /// <param name="v"></param>
+    void AddValue(float v);
+
+    void SetValue(float v);
+
+    float GetValue();
 };

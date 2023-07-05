@@ -13,6 +13,11 @@
 //一気に貯めるのではなく階段状のゲージにしたらよかったかも知れないもっとゲームみたいになると思う。
 // あと別のキーでゲージを下げる処理をやってよかったかもしれない。そっちのほうが操作性がいいと思う
 //球を打ったらゲージがリセットされる処理も追加できたかも.....
+
+namespace {
+	static const float Move_ROT = 90.0f;
+	const float GAUGE_TIME = 0.5f;//
+}
 Player::Player(GameObject* parent)
 {
 	direction = 0.0f;
@@ -34,21 +39,21 @@ void Player::Update()
 {
 	if (Input::IsKey(DIK_W))
 	{
+		Gauge* pGauge = (Gauge*)FindObject("Gauge");
 		if (strengthentheball)
 		{
-			nowPw_ += 2.0f;
-			if (nowPw_ >= maxPw_)
+			pGauge->AddValue(Gauge::MAX/GAUGE_TIME/60.0f);
+			if (pGauge->GetValue() >= Gauge::MIN)
 			{
-				nowPw_ = maxPw_;
 				strengthentheball = false;
 			}
+			
 		}
-		else
+		if(!strengthentheball)
 		{
-			nowPw_ -= 2.0f;
-			if (nowPw_ <= 0.0f)
+			pGauge->AddValue(-Gauge::MAX / GAUGE_TIME / 60.0f);
+			if (pGauge->GetValue() <= Gauge::MAX)
 			{
-				nowPw_ = 0.0f;
 				strengthentheball = true;
 			}
 		}
@@ -58,9 +63,9 @@ void Player::Update()
 	
 	
 	if (Input::IsKey(DIK_A))
-		direction -= 0.01f;
+		direction -= XMConvertToRadians(Move_ROT) / 60.0f;
 	if (Input::IsKey(DIK_D))
-		direction += 0.01f;
+		direction += XMConvertToRadians(Move_ROT) / 60.0f;
    
 	 if(Input::IsKey(DIK_SPACE))
 	{
@@ -73,8 +78,8 @@ void Player::Update()
 	
 	
 
-	Gauge* pGauge = (Gauge*)FindObject("Gauge");
-	pGauge->SetPw(nowPw_, maxPw_);
+	
+	//pGauge->SetPw(nowPw_, maxPw_);
 }
 
 void Player::Draw()
