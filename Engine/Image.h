@@ -19,7 +19,7 @@ namespace Image
 		std::string fileName;
 
 		//ロードした画像データのアドレス
-		Sprite*		pSprite;
+		Sprite* pSprite;
 
 		//切り抜き範囲
 		RECT		rect;
@@ -88,4 +88,8 @@ namespace Image
 	//引数：handle	知りたい画像の番号
 	//戻値：ワールド行列
 	XMMATRIX GetMatrix(int handle);
+
+	int GetWidth(int handle);
+
+	int GetHeight(int handle);
 }

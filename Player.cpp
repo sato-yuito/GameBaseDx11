@@ -3,6 +3,7 @@
 #include"ball.h"
 #include"Engine/Model.h"
 #include"Gauge.h"
+#include"StartScene.h"
 /*
 *マウスで←クリックをしたらゲージが出て球の強さを調整する
 * ゲージ調整が強いほど強烈な球が打てる
@@ -37,6 +38,8 @@ Player::~Player()
 
 void Player::Update()
 {
+	StartScene* pStartScene = FindGameObject<StartScene>();
+	if(pStartScene!=nullptr&&!pStartScene->Finished())
 	if (Input::IsKey(DIK_W))
 	{
 		Gauge* pGauge = (Gauge*)FindObject("Gauge");

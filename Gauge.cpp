@@ -21,8 +21,8 @@ void Gauge::Initialize()
     hPictGauge_ = Image::Load("image.png");
     assert(hPictGauge_ >= 0);
 
-    ImageWidth = 512;
-    ImageHeight = 64;
+    ImageWidth = Image::GetWidth(ImageWidth);
+    ImageHeight = Image::GetHeight(ImageHeight);
 
     hPictFrame_ = Image::Load("image (1).png");
     assert(hPictFrame_ >= 0);

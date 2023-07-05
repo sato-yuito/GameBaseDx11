@@ -151,6 +151,7 @@
     <ClCompile Include="Engine\Transform.cpp" />
     <ClCompile Include="Gauge.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="StartScene.cpp" />
     <ClCompile Include="TestScene.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +181,7 @@
     <ClInclude Include="Engine\Transform.h" />
     <ClInclude Include="Gauge.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="StartScene.h" />
     <ClInclude Include="TestScene.h" />
   </ItemGroup>
   <ItemGroup>
