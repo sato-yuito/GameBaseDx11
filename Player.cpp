@@ -22,7 +22,7 @@ Player::Player(GameObject* parent)
 {
 	direction = 0.0f;
 	power = 0.2f;
-	maxPw_ = 100;
+	//maxPw_ = 100;
 	nowPw_ = 0;
 	//MaxPower = nowPw_ +power;
 	//difPower = nowPw_ - power;
@@ -49,7 +49,7 @@ void Player::Update()
 			}
 			
 		}
-		if(!strengthentheball)
+		else
 		{
 			pGauge->AddValue(-Gauge::MAX / GAUGE_TIME / 60.0f);
 			if (pGauge->GetValue() <= Gauge::MAX)
