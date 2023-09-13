@@ -126,6 +126,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ball.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Engine\Audio.cpp" />
     <ClCompile Include="Engine\BillBoard.cpp" />
     <ClCompile Include="Engine\BoxCollider.cpp" />
@@ -153,9 +154,11 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="StartScene.cpp" />
     <ClCompile Include="TestScene.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ball.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Engine\Audio.h" />
     <ClInclude Include="Engine\BillBoard.h" />
     <ClInclude Include="Engine\BoxCollider.h" />
@@ -183,6 +186,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="StartScene.h" />
     <ClInclude Include="TestScene.h" />
+    <ClInclude Include="TitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\BillBoard.hlsl">

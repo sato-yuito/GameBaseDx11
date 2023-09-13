@@ -54,7 +54,7 @@ void Player::Update()
 		}
 		else
 		{
-			pGauge->AddValue(-Gauge::MAX / GAUGE_TIME / 60.0f);
+			pGauge->AddValue(Gauge::MAX / GAUGE_TIME / 60.0f);
 			if (pGauge->GetValue() <= Gauge::MAX)
 			{
 				strengthentheball = true;
